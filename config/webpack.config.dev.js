@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const URL_LOADER_SIZE_LIMIT = 8 * 1024;
 module.exports = {
     entry: './src/index.tsx',
     output: {
@@ -38,11 +38,22 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.(jpe?g|png|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: URL_LOADER_SIZE_LIMIT
+                        }
+                    }
+                ]
             }
         ]
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js']
+        extensions: ['.tsx', '.ts', '.js', '.css', '.scss']
     },
     plugins: [
         new HtmlWebPackPlugin({

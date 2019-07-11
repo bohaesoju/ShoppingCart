@@ -9,6 +9,7 @@ import reducer from './reducers';
 import App from './app/App';
 import createSagaMiddleWare from 'redux-saga';
 import rootSaga from './sagas';
+import './styles/normalize.scss';
 
 const sagaMiddleWare = createSagaMiddleWare();
 
