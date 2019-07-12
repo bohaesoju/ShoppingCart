@@ -2,10 +2,10 @@ import * as React from 'react';
 
 interface ProductProps {
     // id: number;
-    // name: string;
-    // price: number;
+    name: string;
+    price: number;
     // stock: number;
-    productData: any;
+    // productData: any;
 }
 
 export const ProductInfo: React.FC<ProductProps> = props => {
@@ -14,8 +14,8 @@ export const ProductInfo: React.FC<ProductProps> = props => {
             <img className="cardBoxImg" src={require('./image/pen.jpg')} alt=""/>
             <div className="titleSet">
                 <p className="tit1">네임</p>
-                {console.log('productData : ', props.productData)}
-                <p className="tit1">{props.productData[0].name}</p>
+                {/*{console.log('productData : ', props.productData)}*/}
+                <p className="tit1">{props.name}</p>
                 <ul className="categoryUl">
                     <li className="categoryLi">독일산</li>
                     <li className="categoryLi">모나미</li>

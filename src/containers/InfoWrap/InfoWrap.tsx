@@ -16,7 +16,7 @@ interface ItemState {
     stock: number
 }
 
-class MainPage extends React.PureComponent<info> {
+class InfoWrap extends React.PureComponent<info> {
     state = {
         cart: 0
     };
@@ -98,4 +98,4 @@ const mapDispatchToProps = (dispatch: any) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-) (MainPage);
+) (InfoWrap);

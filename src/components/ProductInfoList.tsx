@@ -11,12 +11,12 @@ class ProductInfoList extends React.Component<ProductProps> {
     };
     render(){
         const { productData } = this.props;
-        const list = productData.map(
-            info => (<ProductInfo productData={info}/>)
+        const list = productData.map(({name, price}, i) => (
+            <ProductInfo name={name} price={price} key={i} />)
         );
         return(
             <div>
-                {list}
+                { list }
             </div>
         )
     }
