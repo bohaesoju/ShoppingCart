@@ -1,6 +1,18 @@
-const initialState = {
-    data: false,
-};
+const initialState =
+[
+    {
+        id: 1,
+        name: '볼펜쓰',
+        price: 2000,
+        stock: 10
+    },
+    {
+        id: 2,
+        name: '지우개',
+        price: 500,
+        stock: 3,
+    }
+];
 
 export const INFO_REQUEST = 'INFO_REQUEST';
 export const INFO_SUCCESS = 'INFO_SUCCESS';

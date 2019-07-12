@@ -8,6 +8,7 @@ import {
 } from "../reducers/Info";
 
 function fetchAPI(args:any) {
+    // return axios.get('http://localhost:9000/api/beers')
     return axios.get('https://jsonplaceholder.typicode.com/posts/1')
 }
 
