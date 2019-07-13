@@ -1,22 +1,24 @@
 import * as React from 'react';
-import { ProductInfo } from './ProductInfo';
+import ProductInfo from './ProductInfo';
 
 interface ProductProps {
-    productData: any;
+    data: any;
 }
 
 class ProductInfoList extends React.Component<ProductProps> {
     static defaultProps = {
-        productData: []
+        data: []
     };
     render(){
-        const { productData } = this.props;
-        const list = productData.map(({name, price}, i) => (
-            <ProductInfo name={name} price={price} key={i} />)
+        const { data } = this.props;
+        const list = data.map((info: any, i:number) => (
+            <ProductInfo key={i} info={info} />)
         );
+        const list2 = 'ㅋㅋㅋ';
         return(
             <div>
-                { list }
+                <ProductInfo info={data} />
+                {console.log('data : ', data, 'list : ', list)}
             </div>
         )
     }

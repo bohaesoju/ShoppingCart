@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 import { requestInfo } from "../../reducers/Info";
 import ProductInfoList from "../../components/ProductInfoList";
+// import PhoneInfoList from "../../components/PhoneInfoList";
 import './InfoWrap.scss';
 
 export interface info {
@@ -17,17 +18,41 @@ interface ItemState {
 }
 
 class InfoWrap extends React.PureComponent<info> {
+    id = 2;
     state = {
-        cart: 0
+        cart: 0,
+        information: [
+            {
+                id: 0,
+                name: '김의중',
+                phone: '010-9820-5468'
+            },
+            {
+                id: 1,
+                name: '홍길동',
+                phone: '010-2254-5575'
+            }
+        ]
     };
+
     clickTest = () => {
         this.setState({
             cart: this.state.cart + 1
         })
     };
+    handleCreate = (data: any) => {
+        const { information } = this.state;
+        this.setState({
+            information: information.concat({
+                id: this.id++,
+                ...data
+            })
+        })
+    };
     render() {
         const { Info } = this.props;
-        const { cart } = this.state;
+        const { cart, information } = this.state;
+
         // const list = Array.from(Info).map((
         //     contact: any) => (
         //         <ProductInfo
@@ -55,6 +80,7 @@ class InfoWrap extends React.PureComponent<info> {
                         <li className="liIcon">카트{cart}</li>
                     </ul>
                 </header>
+                {/*<PhoneInfoList data={this.state.information} />*/}
                 <div className="contentWrap">
                     <ul className="productUl">
                         <li className="productLi">볼펜</li>
@@ -74,7 +100,7 @@ class InfoWrap extends React.PureComponent<info> {
                                 {/*/>);*/}
                             {/*})*/}
                         {/*}*/}
-                        <ProductInfoList productData={ Info } />
+                        <ProductInfoList data={ Info } />
                     </ul>
                 </div>
             </div>
