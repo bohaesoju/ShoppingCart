@@ -14,11 +14,9 @@ class ProductInfoList extends React.Component<ProductProps> {
         const list = data.map((info: any, i:number) => (
             <ProductInfo key={i} info={info} />)
         );
-        const list2 = 'ㅋㅋㅋ';
         return(
             <div>
-                <ProductInfo info={data} />
-                {console.log('data : ', data, 'list : ', list)}
+                { list }
             </div>
         )
     }

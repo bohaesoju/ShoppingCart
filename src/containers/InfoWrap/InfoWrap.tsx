@@ -23,14 +23,16 @@ class InfoWrap extends React.PureComponent<info> {
         cart: 0,
         information: [
             {
-                id: 0,
-                name: '김의중',
-                phone: '010-9820-5468'
+                id: 1,
+                name: '볼펜쓰',
+                price: 2000,
+                stock: 10
             },
             {
-                id: 1,
-                name: '홍길동',
-                phone: '010-2254-5575'
+                id: 2,
+                name: '지우개',
+                price: 500,
+                stock: 3,
             }
         ]
     };
@@ -100,7 +102,7 @@ class InfoWrap extends React.PureComponent<info> {
                                 {/*/>);*/}
                             {/*})*/}
                         {/*}*/}
-                        <ProductInfoList data={ Info } />
+                        <ProductInfoList data={ this.state.information } />
                     </ul>
                 </div>
             </div>
@@ -109,7 +111,7 @@ class InfoWrap extends React.PureComponent<info> {
 };
 
 const mapStateToProps = (state: any) => {
-    console.log('mapSateProps: ', state, Array.isArray(state.Info));
+    console.log('mapSateProps: ', state, Array.isArray(state));
     return {
         Info: state.Info
     }
@@ -124,4 +126,4 @@ const mapDispatchToProps = (dispatch: any) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-) (InfoWrap);
+)(InfoWrap);

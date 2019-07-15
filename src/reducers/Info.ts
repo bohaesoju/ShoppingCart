@@ -1,17 +1,17 @@
-const initialState = [
-    {
-        id: 1,
-        name: '볼펜쓰',
-        price: 2000,
-        stock: 10
-    },
-    {
-        id: 2,
-        name: '지우개',
-        price: 500,
-        stock: 3,
-    }
-];
+const initialState = [1,2,3];
+    // {
+    //     id: 1,
+    //     name: '볼펜쓰',
+    //     price: 2000,
+    //     stock: 10
+    // },
+    // {
+    //     id: 2,
+    //     name: '지우개',
+    //     price: 500,
+    //     stock: 3,
+    // }
+// ];
 
 export const INFO_REQUEST = 'INFO_REQUEST';
 export const INFO_SUCCESS = 'INFO_SUCCESS';
@@ -24,6 +24,7 @@ export const requestInfo = () => {
 };
 
 const info = (state = initialState, action: any) => {
+    console.log('reducer state : ', state, Array.isArray(state));
     switch(action.type){
         case INFO_REQUEST:
             return {
