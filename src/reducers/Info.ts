@@ -1,5 +1,6 @@
-const initialState = [1,2,3];
-    // {
+import { info } from './models';
+
+ // {
     //     id: 1,
     //     name: '볼펜쓰',
     //     price: 2000,
@@ -17,28 +18,40 @@ export const INFO_REQUEST = 'INFO_REQUEST';
 export const INFO_SUCCESS = 'INFO_SUCCESS';
 export const INFO_FAILURE = 'INFO_FAILURE';
 
-export const requestInfo = () => {
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const DELETE_TO_CART = 'DELETE_TO_CART';
+
+export const addToCart = () => {
     return {
-        type: INFO_REQUEST
+        type: ADD_TO_CART
     }
 };
 
-const info = (state = initialState, action: any) => {
-    console.log('reducer state : ', state, Array.isArray(state));
+export const deleteToCart = () => {
+    return {
+        type: DELETE_TO_CART
+    }
+};
+
+ const initialState = {
+     cart: 0
+ };
+
+const info = (state = initialState, action: any): info => {
     switch(action.type){
-        case INFO_REQUEST:
+        // case INFO_REQUEST:
+        //     return {
+        //         ...state,
+        //     };
+        case ADD_TO_CART:
             return {
                 ...state,
+                cart: state.cart + 1
             };
-        case INFO_SUCCESS:
+        case DELETE_TO_CART:
             return {
                 ...state,
-                data: action.data
-            };
-        case INFO_FAILURE:
-            return {
-                ...state,
-                data: null
+                cart: state.cart - 1
             };
         default:
             return Object.assign({}, state);

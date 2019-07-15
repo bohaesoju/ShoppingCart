@@ -1,12 +1,11 @@
 import * as React from 'react';
 
 interface ProductProps {
-    info: any
+    info: any,
+    onAddToCart: any,
 }
 
-class ProductInfo extends React.Component<ProductProps>{
-    render(){
-        const { info } = this.props;
+export const ProductInfo:React.FC<ProductProps> = ({ onAddToCart, info}) => {
         return(
             <li className="cardBoxLi">
                 <img className="cardBoxImg" src={require('./image/pen.jpg')} alt=""/>
@@ -18,14 +17,9 @@ class ProductInfo extends React.Component<ProductProps>{
                         <li className="categoryLi">검정색</li>
                     </ul>
                     <p className="tit2"><span>{info.price}</span>원</p>
-                    {/*<p className="tit2"><span>{Info[0].price}</span>원</p>*/}
                     <p className="tit3">재고 <span>{info.stock}</span></p>
                 </div>
-                <button className="addCart">담기</button>
-                {/*<button onClick={this.clickTest} className="addCart">담기</button>*/}
+                <button onClick={onAddToCart} className="addCart">담기</button>
             </li>
         )
-    }
-};
-
-export default ProductInfo;
+    };

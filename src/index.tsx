@@ -5,7 +5,8 @@ import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import logger from 'redux-logger';
 import { BrowserRouter } from 'react-router-dom';
-import reducer from './reducers';
+import { rootReducer } from "./reducers";
+// import reducer from './reducers';
 import App from './app/App';
 import createSagaMiddleWare from 'redux-saga';
 import rootSaga from './sagas';
@@ -14,7 +15,7 @@ import './styles/normalize.scss';
 const sagaMiddleWare = createSagaMiddleWare();
 
 const store = createStore(
-    reducer,
+    rootReducer,
     composeWithDevTools(applyMiddleware(sagaMiddleWare, logger))
 );
 
