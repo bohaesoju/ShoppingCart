@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ProductInfo } from '../../components/';
-import { useDispatch } from "react-redux";
-import { useEffect, useState, useCallback } from "react";
+import { useDispatch } from 'react-redux';
+import { useEffect, useState, useCallback } from 'react';
 
 export const Product:React.FC = () => {
     const initialValue = [
@@ -34,7 +34,7 @@ export const Product:React.FC = () => {
         }
     ];
     const [stateOptions, setStateValues] = useState(initialValue);
-
+    console.log(stateOptions);
     useEffect(() => {
         setStateValues(allowedState);
     }, []);
@@ -43,8 +43,13 @@ export const Product:React.FC = () => {
         () => dispatch({ type: "ADD_TO_CART" }),
         [dispatch]
     );
-
-    const list = stateOptions.map((info: any, i:number) => (
+    interface Iinfo {
+        id: number,
+        name: string,
+        price: number,
+        stock: number
+    }
+    const list = stateOptions.map((info: Iinfo, i:number) => (
         <ProductInfo key={i} info={info} onAddToCart={onAddToCart} />)
     );
     return(

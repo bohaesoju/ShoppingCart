@@ -1,11 +1,24 @@
 import * as React from 'react';
 
-interface ProductProps {
-    info: any,
-    onAddToCart: any,
+interface TInfo {
+    id: number,
+    name: string,
+    price: number,
+    stock: number,
+    count: number
 }
 
-export const ProductInfo:React.FC<ProductProps> = ({ onAddToCart, info }) => {
+interface IOnAddToCart {
+    onAddToCart(): void
+}
+
+interface IAddInfo {
+    onAddToCart: IOnAddToCart,
+    info: TInfo
+}
+
+export const ProductInfo = ({ onAddToCart, info }) => {
+    console.log(info);
         return(
             <li className="cardBoxLi">
                 <img className="cardBoxImg" src={require('./image/pen.jpg')} alt=""/>
@@ -20,7 +33,7 @@ export const ProductInfo:React.FC<ProductProps> = ({ onAddToCart, info }) => {
                     <p className="tit3">재고 <span>{info.stock}</span></p>
                     <p className="tit3">수량 <span>{info.count}</span></p>
                 </div>
-                <button onClick={onAddToCart} className="btnType1 addCart">담기</button>
+                <button onClick={()=> onAddToCart} className="btnType1 addCart">담기</button>
             </li>
         )
     };

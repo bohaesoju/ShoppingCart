@@ -1,10 +1,17 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
-import { Product } from "../";
+import { Product } from '../';
 import './InfoWrap.scss';
 
+interface Iinfo {
+    Info :{
+        cart: number
+    }
+}
+
 export const InfoWrap:React.FC = () => {
-        const Info = useSelector((state: any) => state.Info);
+        const Info = useSelector((state: Iinfo) => state.Info);
+        console.log(Info);
         return (
             <div className="Wrap">
                 <header className="header">

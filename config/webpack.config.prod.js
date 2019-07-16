@@ -9,7 +9,7 @@ module.exports = {
         filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, "../build")
     },
-    mode: "production",
+    mode: 'production',
     module: {
         rules: [
             {
@@ -42,7 +42,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: "./public/index.html",
+            template: './public/index.html',
             filename: 'index.html'
         }),
         new MiniCssExtractPlugin({

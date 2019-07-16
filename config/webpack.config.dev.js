@@ -8,7 +8,7 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, "../build")
     },
-    mode: "development",
+    mode: 'development',
     devServer: {
         contentBase: path.resolve(__dirname, '../build'),
         index: 'index.html',
@@ -57,7 +57,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: "./public/index.html",
+            template: './public/index.html',
             filename: 'index.html'
         }),
         new MiniCssExtractPlugin({
