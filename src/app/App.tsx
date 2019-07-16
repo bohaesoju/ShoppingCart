@@ -1,5 +1,5 @@
 import * as React from 'react';
-import '../style.scss';
+import '../styles/style.scss';
 import { Route, Switch } from 'react-router-dom';
 import { Home, Menu, NotFound } from '../components';
 import { MainPage } from '../pages/MainPage';

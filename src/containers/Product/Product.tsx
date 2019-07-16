@@ -15,13 +15,22 @@ export const Product:React.FC = () => {
             id: 1,
             name: '모나미볼펜',
             price: 2000,
-            stock: 10
+            stock: 10,
+            count: 0
         },
         {
             id: 2,
             name: '지우개',
-            price: 500,
+            price: 600,
             stock: 3,
+            count:0
+        },
+        {
+            id: 3,
+            name: '딱풀',
+            price: 500,
+            stock: 13,
+            count:0
         }
     ];
     const [stateOptions, setStateValues] = useState(initialValue);

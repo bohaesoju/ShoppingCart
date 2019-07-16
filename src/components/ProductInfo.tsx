@@ -18,8 +18,9 @@ export const ProductInfo:React.FC<ProductProps> = ({ onAddToCart, info }) => {
                     </ul>
                     <p className="tit2"><span>{info.price}</span>원</p>
                     <p className="tit3">재고 <span>{info.stock}</span></p>
+                    <p className="tit3">수량 <span>{info.count}</span></p>
                 </div>
-                <button onClick={onAddToCart} className="addCart">담기</button>
+                <button onClick={onAddToCart} className="btnType1 addCart">담기</button>
             </li>
         )
     };
