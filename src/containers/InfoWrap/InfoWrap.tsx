@@ -1,17 +1,10 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Product } from "../";
-import { rootState } from "../../reducers";
 import './InfoWrap.scss';
 
-export interface info {
-    Info: any
-}
-
-class InfoWrap extends React.PureComponent<info> {
-    render() {
-        const { Info } = this.props;
-
+export const InfoWrap:React.FC = () => {
+        const Info = useSelector((state: any) => state.Info);
         return (
             <div className="Wrap">
                 <header className="header">
@@ -36,16 +29,4 @@ class InfoWrap extends React.PureComponent<info> {
                 </div>
             </div>
         );
-    }
 };
-
-const mapStateToProps = (state: rootState) => {
-    return {
-        Info: state.Info
-    }
-};
-
-export default connect(
-    mapStateToProps,
-    null
-)(InfoWrap);

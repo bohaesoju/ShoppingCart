@@ -5,7 +5,7 @@ interface ProductProps {
     onAddToCart: any,
 }
 
-export const ProductInfo:React.FC<ProductProps> = ({ onAddToCart, info}) => {
+export const ProductInfo:React.FC<ProductProps> = ({ onAddToCart, info }) => {
         return(
             <li className="cardBoxLi">
                 <img className="cardBoxImg" src={require('./image/pen.jpg')} alt=""/>

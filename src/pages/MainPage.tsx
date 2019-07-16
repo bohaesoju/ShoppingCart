@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { InfoWrap } from '../containers';
+import { InfoWrap } from '../containers/';
 
-export const MainPage: React.FC = () => {
+export const MainPage:React.FC = () => {
     return(
         <>
             <InfoWrap />

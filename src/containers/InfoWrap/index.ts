@@ -1,1 +1,2 @@
-export { default } from './InfoWrap';
+export * from './InfoWrap';
+// export { default as InfoWrap } from './InfoWrap';

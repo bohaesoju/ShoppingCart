@@ -21,28 +21,12 @@ export const INFO_FAILURE = 'INFO_FAILURE';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const DELETE_TO_CART = 'DELETE_TO_CART';
 
-export const addToCart = () => {
-    return {
-        type: ADD_TO_CART
-    }
-};
-
-export const deleteToCart = () => {
-    return {
-        type: DELETE_TO_CART
-    }
-};
-
- const initialState = {
+ const initialState: info = {
      cart: 0
  };
 
 const info = (state = initialState, action: any): info => {
     switch(action.type){
-        // case INFO_REQUEST:
-        //     return {
-        //         ...state,
-        //     };
         case ADD_TO_CART:
             return {
                 ...state,
