@@ -6,5 +6,13 @@ export interface IStationery{
         price: number,
         stock: number
     }
-    isStationery: boolean
+    isFetchStationery: boolean
+}
+
+export interface ITag{
+    tagData: {
+        key: string,
+        name: string,
+    }
+    isFetchTag: boolean
 }

@@ -1,8 +1,10 @@
 import { all, fork } from 'redux-saga/effects';
-import info from './Stationery';
+import stationery from './Stationeries';
+import tag from './Tags';
 
 export default function* rootSaga() {
     yield all([
-        fork(info),
+        fork(stationery),
+        fork(tag),
     ]);
 }

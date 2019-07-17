@@ -35,11 +35,17 @@
     padding: 10px;
     .productUl{
       margin-bottom: 10px;
+      width: 100%;
+      overflow-x: scroll;
+      white-space: nowrap;
       .productLi{
         display: inline-block;
         margin-right: 10px;
         position: relative;
+        border: 1px solid #ccc;
         box-sizing: border-box;
+        padding: 5px;
+        border-radius: 5px;
       }
     }
     .cardBoxUl{

@@ -21,38 +21,31 @@ const initialState: IStationery = {
         price: 1,
         stock: 1
     },
-    isStationery: false
+    isFetchStationery: false
 };
 
-const stationery = (state = initialState, action: any): IStationery => {
-    // const stationery = (state = initialState, action: {type: string}): IStationery => {
+const stationeries = (state = initialState, action: any): IStationery => {
+    // const stationeries = (state = initialState, action: {type: string}): IStationery => {
     switch(action.type){
         case STATIONERY_REQUEST:
             return {
                 ...state,
-                isStationery: false,
+                isFetchStationery: false,
             };
         case STATIONERY_SUCCESS:
             return {
                 ...state,
-                isStationery: true,
+                isFetchStationery: true,
                 data: action.data
             };
         case STATIONERY_FAILURE:
             return {
                 ...state,
-                data: {
-                    id: 1,
-                    name: '1',
-                    image: '1',
-                    price: 1,
-                    stock: 1
-                },
-                isStationery: false,
+                isFetchStationery: false,
             };
         default:
             return Object.assign({}, state);
     }
 };
 
-export default stationery;
+export default stationeries;

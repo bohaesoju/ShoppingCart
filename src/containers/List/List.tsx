@@ -1,23 +1,28 @@
 import * as React from 'react';
-import { StationeryBox } from '../../components/';
+import { StationeryBox, TagList } from '../../components/';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { stationeryRequest } from '../../reducers/Stationery';
+import { stationeryRequest } from '../../reducers/Stationeries';
+import { tagRequest } from '../../reducers/Tags';
 import { rootState } from "../../reducers";
 
 interface IProps {
     onStationeryRequest: typeof stationeryRequest
+    onTagRequest: typeof tagRequest
     Stationery: any
+    Tag: any
 }
 
 class List extends React.Component<IProps> {
     constructor(props: IProps){
         super(props);
         this.props.onStationeryRequest();
+        this.props.onTagRequest();
     }
 
     render(){
-        const { data, isStationery } = this.props.Stationery;
+        const { data, isFetchStationery } = this.props.Stationery;
+        const { tagData, isFetchTag } = this.props.Tag;
         interface IStationery {
             id: number,
             image: string,
@@ -25,19 +30,21 @@ class List extends React.Component<IProps> {
             price: number,
             stock: number
         }
+        interface ITag {
+            key: string,
+            name: string,
+        }
         return(
             <div className="wrap">
                 <div className="contentWrap">
                     <ul className="productUl">
-                        <li className="productLi">볼펜</li>
-                        <li className="productLi">연필</li>
-                        <li className="productLi">침대</li>
-                        <li className="productLi">잠옷</li>
-                        <li className="productLi">부채</li>
+                        { isFetchTag === true && tagData.map((e: ITag, i:number) => (
+                            <TagList key={i} TagData={e} />)
+                        )}
                     </ul>
                     <ul className="cardBoxUl">
                         <div>
-                            { isStationery === true && data.map((e: IStationery, i:number) => (
+                            { isFetchStationery === true && data.map((e: IStationery, i:number) => (
                                 <StationeryBox key={i} StationeryData={e} />)
                             )}
                         </div>
@@ -52,11 +59,13 @@ class List extends React.Component<IProps> {
 const mapStateToProps = (rootState: rootState) => {
     return {
         Stationery: rootState.Stationery,
+        Tag: rootState.Tag,
     }
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     onStationeryRequest: () => dispatch(stationeryRequest()),
+    onTagRequest: () => dispatch(tagRequest()),
 
 });
 
