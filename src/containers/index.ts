@@ -1,3 +1,6 @@
-// export { default as InfoWrap } from "./InfoWrap";
-export * from './InfoWrap';
-export * from "./Product";
+// export { default as List } from "./List";
+export * from './List';
+// export * from "./Product";
+// export { default } from './Product';
+// export { default as Cart } from './Cart';
+

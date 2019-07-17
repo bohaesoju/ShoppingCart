@@ -1,1 +1,2 @@
-export * from './MainPage';
+export * from './ListPage';
+export * from './CartPage';

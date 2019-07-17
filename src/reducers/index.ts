@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import Info from './Info';
+import Stationery from './Stationery';
 
 export const rootReducer = combineReducers({
-    Info,
+    Stationery,
 });
 
 export type rootState = ReturnType<typeof rootReducer>

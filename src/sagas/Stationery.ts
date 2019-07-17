@@ -2,34 +2,33 @@ import { put, all, call, fork, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 import {
-    INFO_REQUEST,
-    INFO_SUCCESS,
-    INFO_FAILURE
-} from "../reducers/Info";
+    STATIONERY_REQUEST,
+    STATIONERY_SUCCESS,
+    STATIONERY_FAILURE
+} from "../reducers/Stationery";
 
 function fetchAPI(args:any) {
-    // return axios.get('http://localhost:9000/api/beers')
-    return axios.get('https://jsonplaceholder.typicode.com/posts/1')
+    return axios.get('http://localhost:3000/stationeries')
 }
 
 function* fetchInfo(action: any){
     try{
         const result = yield call(fetchAPI, action.data);
         yield put({
-            type: INFO_SUCCESS,
+            type: STATIONERY_SUCCESS,
             data: result.data,
         });
     } catch(e){
         console.error(e);
         yield put({
-            type: INFO_FAILURE,
+            type: STATIONERY_FAILURE,
             message: e.message,
         });
     }
 }
 
 function* watchFetch(){
-    yield takeEvery(INFO_REQUEST, fetchInfo);
+    yield takeEvery(STATIONERY_REQUEST, fetchInfo);
 }
 
 export default function* userSaga(){
