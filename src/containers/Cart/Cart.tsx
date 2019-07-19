@@ -12,13 +12,6 @@ class Cart extends React.Component {
         return(
             <div className="wrap">
                 <div className="contentWrap">
-                    <ul className="productUl">
-                        <li className="productLi">볼펜</li>
-                        <li className="productLi">연필</li>
-                        <li className="productLi">침대</li>
-                        <li className="productLi">잠옷</li>
-                        <li className="productLi">부채</li>
-                    </ul>
                     <div className="cartWrap">
                         <EmptyCart />
                     </div>

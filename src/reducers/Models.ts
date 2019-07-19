@@ -1,18 +1,23 @@
 export interface IStationery{
     data: {
-        id: number,
-        name: string,
-        image: string,
-        price: number,
+        id: number
+        name: string
+        image: string
+        tags: {
+            key: string
+            name: string
+        }
+        price: number
         stock: number
+        count: number
     }
     isFetchStationery: boolean
 }
 
 export interface ITag{
     tagData: {
-        key: string,
-        name: string,
+        key: string
+        name: string
     }
     isFetchTag: boolean
 }

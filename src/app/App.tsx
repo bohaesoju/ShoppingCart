@@ -1,7 +1,7 @@
 import * as React from 'react';
 import '../styles/style.scss';
 import { Route, Switch } from 'react-router-dom';
-import { Home, Menu, NotFound } from '../components';
+import { NotFound } from '../components';
 import { ListPage, CartPage } from '../pages/';
 
 class App extends React.Component {

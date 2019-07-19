@@ -4,12 +4,18 @@ export const STATIONERY_REQUEST = 'STATIONERY_REQUEST';
 export const STATIONERY_SUCCESS = 'STATIONERY_SUCCESS';
 export const STATIONERY_FAILURE = 'STATIONERY_FAILURE';
 
-// export const ADD_TO_CART = 'ADD_TO_CART';
-// export const DELETE_TO_CART = 'DELETE_TO_CART';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const DELETE_TO_CART = 'DELETE_TO_CART';
 
 export const stationeryRequest = () => {
     return {
         type: STATIONERY_REQUEST
+    }
+};
+
+export const addToCart = () => {
+    return {
+        type: ADD_TO_CART
     }
 };
 
@@ -19,7 +25,12 @@ const initialState: IStationery = {
         name: '1',
         image: '1',
         price: 1,
-        stock: 1
+        tags: {
+            key: '1',
+            name: '1'
+        },
+        stock: 1,
+        count: 0
     },
     isFetchStationery: false
 };
@@ -42,6 +53,16 @@ const stationeries = (state = initialState, action: any): IStationery => {
             return {
                 ...state,
                 isFetchStationery: false,
+            };
+        case ADD_TO_CART:
+            return {
+                ...state,
+                {
+                    count: state.count + 1
+                }
+                // data: action.data.count.reduce((count: number, current: any) => {
+                //     return count += 1
+                // }, 0)
             };
         default:
             return Object.assign({}, state);

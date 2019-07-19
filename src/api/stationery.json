@@ -5,6 +5,12 @@
       "name": "볼펜",
       "image": "./image/pen.jpg",
       "price": 1500,
+      "tags": [
+        {
+          "key": "1",
+          "name": "모나미"
+        }
+      ],
       "stock": 10
     },
     {
@@ -12,6 +18,16 @@
       "name": "지우개",
       "image": "eraser.jpg",
       "price": 500,
+      "tags": [
+        {
+          "key": "1",
+          "name": "모나미"
+        },
+        {
+          "key": "2",
+          "name": "카카오프렌즈"
+        }
+      ],
       "stock": 5
     }
   ],
@@ -22,7 +38,7 @@
     },
     {
       "key": "2",
-      "name": "카카오프렌"
+      "name": "카카오프렌즈"
     },
     {
       "key": "3",

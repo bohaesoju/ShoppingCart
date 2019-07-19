@@ -2,13 +2,14 @@ import * as React from 'react';
 import { StationeryBox, TagList } from '../../components/';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { stationeryRequest } from '../../reducers/Stationeries';
+import { stationeryRequest, addToCart } from '../../reducers/Stationeries';
 import { tagRequest } from '../../reducers/Tags';
 import { rootState } from "../../reducers";
 
 interface IProps {
     onStationeryRequest: typeof stationeryRequest
     onTagRequest: typeof tagRequest
+    onAddToCart: typeof addToCart
     Stationery: any
     Tag: any
 }
@@ -20,15 +21,24 @@ class List extends React.Component<IProps> {
         this.props.onTagRequest();
     }
 
+    onAddToCart = () => {
+        this.props.onAddToCart();
+    };
+
     render(){
         const { data, isFetchStationery } = this.props.Stationery;
         const { tagData, isFetchTag } = this.props.Tag;
         interface IStationery {
-            id: number,
-            image: string,
-            name: string,
-            price: number,
+            id: number
+            image: string
+            name: string
+            price: number
+            tags: {
+                key: string
+                name: string
+            }[]
             stock: number
+            count: number
         }
         interface ITag {
             key: string,
@@ -45,7 +55,7 @@ class List extends React.Component<IProps> {
                     <ul className="cardBoxUl">
                         <div>
                             { isFetchStationery === true && data.map((e: IStationery, i:number) => (
-                                <StationeryBox key={i} StationeryData={e} />)
+                                <StationeryBox key={i} StationeryData={e} onAddToCart={ this.onAddToCart } />)
                             )}
                         </div>
                     </ul>
@@ -66,6 +76,7 @@ const mapStateToProps = (rootState: rootState) => {
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     onStationeryRequest: () => dispatch(stationeryRequest()),
     onTagRequest: () => dispatch(tagRequest()),
+    onAddToCart: () => dispatch(addToCart()),
 
 });
 
