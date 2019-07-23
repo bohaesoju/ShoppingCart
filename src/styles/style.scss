@@ -90,6 +90,13 @@
           border:1px solid #ccc;
           border-radius: 15px;
         }
+        .deleteCart{
+          position: absolute;
+          right:60px;
+          bottom:10px;
+          border:1px solid #ccc;
+          border-radius: 15px;
+        }
       }
     }
   }
@@ -113,4 +120,16 @@
       color: #333;
     }
   }
+}
+
+.totalCount{
+  //text-align: right;
+}
+
+.buyButton{
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  border:1px solid #ccc;
+  border-radius: 15px;
 }

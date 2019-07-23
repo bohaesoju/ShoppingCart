@@ -9,7 +9,6 @@ export interface IStationery{
         }
         price: number
         stock: number
-        count: number
     }
     isFetchStationery: boolean
 }
@@ -20,4 +19,8 @@ export interface ITag{
         name: string
     }
     isFetchTag: boolean
+}
+
+export interface ICount{
+    count: number
 }

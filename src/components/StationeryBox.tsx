@@ -12,15 +12,21 @@ interface IStationeryData {
         name: string
     }[]
     stock: number
-    count: number
 }
 
 interface IAddInfo {
     onAddToCart(): void,
-    StationeryData: IStationeryData
+    onDeleteToCart(): void,
+    StationeryData: IStationeryData,
+    count: number
 }
 
-export const StationeryBox = ({ StationeryData, onAddToCart }: IAddInfo) => {
+export const StationeryBox = ({
+                                  StationeryData,
+                                  count,
+                                  onAddToCart,
+                                  onDeleteToCart
+                              }: IAddInfo) => {
     return(
         <li className="cardBoxLi">
             <img className="cardBoxImg" src={require('./image/pen.jpg')} alt=""/>
@@ -33,9 +39,10 @@ export const StationeryBox = ({ StationeryData, onAddToCart }: IAddInfo) => {
                 </ul>
                 <p className="stationeryPrice"><span>{StationeryData.price}</span>원</p>
                 <p className="stationeryStock">재고 <span>{StationeryData.stock}</span></p>
-                <p className="stationeryStock">수량 <span>{StationeryData.count}</span></p>
+                {/*<p className="stationeryStock">수량 <span>{StationeryData.count}</span></p>*/}
             </div>
             <button onClick={ onAddToCart } className="addCart">담기</button>
+            {count > 0 && <button onClick={ onDeleteToCart } className="deleteCart">빼기</button>}
         </li>
     )
 };

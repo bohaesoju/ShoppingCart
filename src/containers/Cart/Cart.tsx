@@ -2,18 +2,28 @@ import * as React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { rootState } from "../../reducers";
-import { EmptyCart } from '../../components';
+import { EmptyCart, FieldCart } from '../../components';
 
+interface IProps{
+    Cart: {
+        count: number
+    }
+}
 
-class Cart extends React.Component {
-
+class Cart extends React.Component<IProps> {
+    buyButton = () => {
+        console.log('buy')
+    };
     render(){
-
+        const { count } = this.props.Cart;
         return(
             <div className="wrap">
                 <div className="contentWrap">
                     <div className="cartWrap">
-                        <EmptyCart />
+                        { count > 0 ?
+                            <FieldCart buyButton={ this.buyButton } count={ count } /> :
+                            <EmptyCart />
+                        }
                     </div>
                 </div>
             </div>
@@ -23,7 +33,7 @@ class Cart extends React.Component {
 
 const mapStateToProps = (rootState: rootState) => {
     return {
-        // Stationery: rootState.Stationery,
+        Cart: rootState.Cart
     }
 };
 
@@ -33,6 +43,6 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 });
 
 export default connect(
-    null,
+    mapStateToProps,
     null
 )(Cart);
