@@ -1,6 +1,4 @@
 import * as React from 'react';
-import StationeryTag from './StationeryTag';
-import { TagList } from "./TagList";
 
 interface IStationeryData {
     id: number
@@ -21,6 +19,11 @@ interface IAddInfo {
     count: number
 }
 
+interface ITag{
+    key: string
+    name: string
+}
+
 export const StationeryBox = ({
                                   StationeryData,
                                   count,
@@ -33,9 +36,9 @@ export const StationeryBox = ({
             <div className="titleSet">
                 <p className="stationeryName">{StationeryData.name}</p>
                 <ul className="categoryUl">
-                    { StationeryData.tags.map((e: any, i:number) => (
-                        <StationeryTag key={i} />)
-                    )}
+                    { StationeryData.tags.map((e: ITag, i:number) => (
+                        <li className="categoryLi" key={ i }>{ e.name }</li>
+                    ))}
                 </ul>
                 <p className="stationeryPrice"><span>{StationeryData.price}</span>원</p>
                 <p className="stationeryStock">재고 <span>{StationeryData.stock}</span></p>

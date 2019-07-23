@@ -8,18 +8,20 @@ interface IProps{
     Cart: {
         count: number
     }
+    Stationery: any
 }
 
 class Header extends React.Component<IProps> {
     render(){
         const { count } = this.props.Cart;
+        const { cartList } = this.props.Stationery;
         return(
             <header className="header">
                 <p className="title1">문구담기</p>
                 <ul className="rightIcon">
                     <li className="liIcon"><Link to="/">목록</Link></li>
                     <li className="liIcon"><Link to="/cart">카트</Link></li>
-                    { count > 0 && <li className="liIcon">{ count }</li>}
+                    { cartList.length > 0 && <li className="liIcon">{ cartList.length }</li>}
                 </ul>
             </header>
         )
@@ -29,6 +31,7 @@ class Header extends React.Component<IProps> {
 const mapStateToProps = (rootState: rootState) => {
     return {
         Cart: rootState.Cart,
+        Stationery: rootState.Stationery
     }
 };
 

@@ -9,8 +9,20 @@ export interface IStationery{
         }
         price: number
         stock: number
-    }
+    }[]
     isFetchStationery: boolean
+    isAddCartList: boolean
+    cartList: {
+        id: number
+        name: string
+        image: string
+        tags: {
+            key: string
+            name: string
+        }
+        price: number
+        stock: number
+    }[]
 }
 
 export interface ITag{

@@ -2,9 +2,9 @@ import * as React from 'react';
 import { StationeryBox, TagList } from '../../components/';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { stationeryRequest } from '../../reducers/Stationeries';
+import { stationeryRequest, addToCart } from '../../reducers/Stationeries';
 import { tagRequest } from '../../reducers/Tags';
-import { addToCart, deleteToCart } from '../../reducers/Cart';
+import { deleteToCart } from '../../reducers/Cart';
 import { rootState } from "../../reducers";
 
 interface IProps {
