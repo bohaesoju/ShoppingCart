@@ -71,9 +71,7 @@ const stationeries = (state = initialState, action: any): IStationery => {
         case ADD_TO_CART:
             return {
                 ...state,
-                cartList: state.cartList.push(
-                    state.data[0]
-                )
+                cartList: [...state.data]
                 // cartList: [
                 //     state.data[0]
                 // ]

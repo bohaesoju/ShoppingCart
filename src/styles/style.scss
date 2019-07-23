@@ -48,57 +48,7 @@
         border-radius: 5px;
       }
     }
-    .cardBoxUl{
-      .cardBoxLi{
-        padding: 10px;
-        margin-bottom: 10px;
-        background: #fff;
-        border-radius: 10px;
-        position: relative;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        .cardBoxImg{
-          width: 50px;
-          height: 100px;
-          display: block;
-        }
-        .titleSet{
-          position: absolute;
-          left:80px;
-          top:10px;
-          .categoryUl{
-            margin-bottom: 5px;
-            .categoryLi{
-              display: inline-block;
-            }
-          }
-          .stationeryName{
-            margin-bottom: 5px;
-          }
-          .stationeryPrice{
-            margin-bottom: 5px;
-          }
-          .stationeryStock{
 
-          }
-        }
-        .addCart{
-          position: absolute;
-          right:10px;
-          bottom:10px;
-          border:1px solid #ccc;
-          border-radius: 15px;
-        }
-        .deleteCart{
-          position: absolute;
-          right:60px;
-          bottom:10px;
-          border:1px solid #ccc;
-          border-radius: 15px;
-        }
-      }
-    }
   }
 }
 
@@ -132,4 +82,57 @@
   padding: 10px;
   border:1px solid #ccc;
   border-radius: 15px;
+}
+
+.categoryUl{
+  margin-bottom: 5px;
+  .categoryLi{
+    display: inline-block;
+  }
+}
+
+.cardBoxUl{
+  .cardBoxLi{
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    .cardBoxImg{
+      width: 50px;
+      height: 100px;
+      display: block;
+    }
+    .titleSet{
+      position: absolute;
+      left:80px;
+      top:10px;
+      .stationeryName{
+        margin-bottom: 5px;
+      }
+      .stationeryPrice{
+        margin-bottom: 5px;
+      }
+      .stationeryStock{
+
+      }
+    }
+    .addCart{
+      position: absolute;
+      right:10px;
+      bottom:10px;
+      border:1px solid #ccc;
+      border-radius: 15px;
+    }
+    .deleteCart{
+      position: absolute;
+      right:60px;
+      bottom:10px;
+      border:1px solid #ccc;
+      border-radius: 15px;
+    }
+  }
 }

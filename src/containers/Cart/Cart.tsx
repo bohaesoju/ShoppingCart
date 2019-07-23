@@ -5,9 +5,7 @@ import { rootState } from "../../reducers";
 import { EmptyCart, FieldCart } from '../../components';
 
 interface IProps{
-    Cart: {
-        count: number
-    }
+    Stationery: any
 }
 
 class Cart extends React.Component<IProps> {
@@ -15,13 +13,13 @@ class Cart extends React.Component<IProps> {
         console.log('buy')
     };
     render(){
-        const { count } = this.props.Cart;
+        const { cartList } = this.props.Stationery;
         return(
             <div className="wrap">
                 <div className="contentWrap">
                     <div className="cartWrap">
-                        { count > 0 ?
-                            <FieldCart buyButton={ this.buyButton } count={ count } /> :
+                        { cartList.length > 0 ?
+                            <FieldCart buyButton={ this.buyButton } cartList={ cartList } /> :
                             <EmptyCart />
                         }
                     </div>
@@ -33,7 +31,7 @@ class Cart extends React.Component<IProps> {
 
 const mapStateToProps = (rootState: rootState) => {
     return {
-        Cart: rootState.Cart
+        Stationery: rootState.Stationery
     }
 };
 
