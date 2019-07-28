@@ -70,10 +70,11 @@ const stationeries = (state = initialState, action: any): IStationery => {
                 isFetchStationery: false,
             };
         case ADD_TO_CART:
-            console.log('cart: ', state, action.index)
+            console.log('cart: ', state.data, action.index);
+            state.cartList.push(state.data[action.index]);
             return {
                 ...state,
-                cartList: [state.data[action.index]]
+                ...state.cartList
                 // cartList: [
                 //     state.data[0]
                 // ]
