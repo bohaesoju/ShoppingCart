@@ -6,9 +6,10 @@ export const STATIONERY_FAILURE = 'STATIONERY_FAILURE';
 export const ADD_TO_CART = 'ADD_TO_CART';
 // export const DELETE_TO_CART = 'DELETE_TO_CART';
 
-export const addToCart = () => {
+export const addToCart = (i: number) => {
     return {
-        type: ADD_TO_CART
+        type: ADD_TO_CART,
+        index: i
     }
 };
 
@@ -20,31 +21,31 @@ export const stationeryRequest = () => {
 
 const initialState: IStationery = {
     data: [
-        {
-        id: 1,
-        name: '1',
-        image: '1',
-        price: 1,
-        tags: {
-            key: '1',
-            name: '1'
-        },
-        stock: 1,}
+        // {
+        // id: 1,
+        // name: '1',
+        // image: '1',
+        // price: 1,
+        // tags: {
+        //     key: '1',
+        //     name: '1'
+        // },
+        // stock: 1,}
     ],
     isFetchStationery: false,
     isAddCartList: false,
     cartList: [
-        {
-            id: 1,
-            name: '1',
-            image: '1',
-            price: 1,
-            tags: {
-                key: '1',
-                name: '1'
-            },
-            stock: 1,
-        }
+        // {
+        //     id: 1,
+        //     name: '1',
+        //     image: '1',
+        //     price: 1,
+        //     tags: {
+        //         key: '1',
+        //         name: '1'
+        //     },
+        //     stock: 1,
+        // }
     ]
 };
 
@@ -69,9 +70,10 @@ const stationeries = (state = initialState, action: any): IStationery => {
                 isFetchStationery: false,
             };
         case ADD_TO_CART:
+            console.log('cart: ', state, action.index)
             return {
                 ...state,
-                cartList: [...state.data]
+                cartList: [state.data[action.index]]
                 // cartList: [
                 //     state.data[0]
                 // ]

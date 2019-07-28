@@ -11,12 +11,13 @@ interface ITag{
 }
 
 export const FieldCart:React.FC<IFieldCart> = (props) => {
+    console.log(props.cartList)
     return(
             <>
                 <ul className="cardBoxUl">
                     {console.log(props)}
                     { props.cartList.map((e: any, i:number) => (
-                        <li className="cardBoxLi">
+                        <li key={i} className="cardBoxLi">
                             <img className="cardBoxImg" src={require('./image/pen.jpg')} alt=""/>
                             <div className="titleSet">
                                 <p className="stationeryName">{e.name}</p>

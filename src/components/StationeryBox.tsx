@@ -13,7 +13,7 @@ interface IStationeryData {
 }
 
 interface IAddInfo {
-    onAddToCart(): void,
+    onAddToCart(i: any): any,
     onDeleteToCart(): void,
     StationeryData: IStationeryData,
     count: number
@@ -44,7 +44,7 @@ export const StationeryBox = ({
                 <p className="stationeryStock">재고 <span>{StationeryData.stock}</span></p>
                 {/*<p className="stationeryStock">수량 <span>{StationeryData.count}</span></p>*/}
             </div>
-            <button onClick={ onAddToCart } className="addCart">담기</button>
+            <button onClick={ (i: any)=> onAddToCart(i) } className="addCart">담기</button>
             {count > 0 && <button onClick={ onDeleteToCart } className="deleteCart">빼기</button>}
         </li>
     )
