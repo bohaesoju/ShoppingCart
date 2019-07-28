@@ -10,7 +10,10 @@ interface IAddInfo {
 }
 
 export const TagList = ({ TagData }: IAddInfo) => {
+    const getTagName = (tagData: any) => {
+        console.log(tagData)
+    }
     return(
-        <li className="productLi">{TagData.name}</li>
+        <li className="productLi" onClick={() => getTagName(TagData)}>{TagData.name}</li>
     )
 };

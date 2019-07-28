@@ -22,7 +22,16 @@
         {
           "key": "1",
           "name": "모나미"
-        },
+        }
+      ],
+      "stock": 5
+    },
+    {
+      "id": 3,
+      "name": "지우개",
+      "image": "eraser.jpg",
+      "price": 500,
+      "tags": [
         {
           "key": "2",
           "name": "카카오프렌즈"
