@@ -4,16 +4,19 @@ import { connect } from 'react-redux';
 import { rootState } from '../../reducers';
 import { EmptyCart, FieldCart } from '../../components';
 import { clearCartlist } from '../../reducers/Stationeries';
+import { purchaseRequest } from '../../reducers/Cart';
 
 interface IProps{
     Stationery: any
     onClearCartlist(): void
+    onPurchaseRequest(): void
 }
 
 class Cart extends React.Component<IProps> {
     buyButton = () => {
         console.log(this.props.Stationery.cartList);
-        this.props.onClearCartlist()
+        this.props.onPurchaseRequest();
+        this.props.onClearCartlist();
     };
     render(){
         const { cartList } = this.props.Stationery;
@@ -40,6 +43,7 @@ const mapStateToProps = (rootState: rootState) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     onClearCartlist: () => dispatch(clearCartlist()),
+    onPurchaseRequest: () => dispatch(purchaseRequest())
 
 });
 

@@ -27,6 +27,10 @@ class List extends React.Component<IProps> {
         this.props.onTagRequest();
     }
 
+    state = {
+        renderingInitNumber: 0
+    };
+
     onAddToCart = (i: number) => {
         this.props.onAddToCart(i);
     };
@@ -37,6 +41,12 @@ class List extends React.Component<IProps> {
 
     onSelectTags = (i: number) => {
         this.props.onSelectTags(i);
+    };
+
+    viewMoreButton = () => {
+        this.setState({
+            renderingInitNumber: this.state.renderingInitNumber + 1
+        });
     };
 
     render(){
@@ -83,7 +93,7 @@ class List extends React.Component<IProps> {
                             )}
                         </div>
                     </ul>
-                    <button className="moreButton">더보기</button>
+                    <button onClick={ this.viewMoreButton } className="moreButton">더보기</button>
                 </div>
             </div>
         )

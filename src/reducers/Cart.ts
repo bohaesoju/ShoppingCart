@@ -1,7 +1,16 @@
 import { ICount } from './Models';
 
+export const PURCHASE_REQUEST = 'PURCHASE_REQUEST';
+export const PURCHASE_SUCCESS = 'PURCHASE_SUCCESS';
+export const PURCHASE_FAILURE = 'PURCHASE_FAILURE';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const DELETE_TO_CART = 'DELETE_TO_CART';
+
+export const purchaseRequest = () => {
+    return {
+        type: PURCHASE_REQUEST
+    }
+};
 
 export const addToCart = () => {
     return {
