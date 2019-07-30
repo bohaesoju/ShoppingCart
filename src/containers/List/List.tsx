@@ -3,7 +3,7 @@ import { StationeryBox, TagList } from '../../components/';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { stationeryRequest, addToCart } from '../../reducers/Stationeries';
-import { tagRequest } from '../../reducers/Tags';
+import { tagRequest, selectTags } from '../../reducers/Tags';
 import { deleteToCart } from '../../reducers/Cart';
 import { rootState } from "../../reducers";
 
@@ -12,6 +12,7 @@ interface IProps {
     onTagRequest: typeof tagRequest
     onAddToCart: typeof addToCart
     onDeleteToCart: typeof deleteToCart
+    onSelectTags: typeof selectTags
     Stationery: any
     Tag: any
     Cart: {
@@ -34,9 +35,13 @@ class List extends React.Component<IProps> {
         this.props.onDeleteToCart();
     };
 
+    onSelectTags = (i: number) => {
+        this.props.onSelectTags(i);
+    };
+
     render(){
         const { data, isFetchStationery } = this.props.Stationery;
-        const { tagData, isFetchTag } = this.props.Tag;
+        const { tagData, isFetchTag, selectedTagList } = this.props.Tag;
         const { count } = this.props.Cart;
         interface IStationery {
             id: number
@@ -55,11 +60,15 @@ class List extends React.Component<IProps> {
             name: string,
         }
         return(
-            <div className="wrap">
+            <div className="listPageWrap">
                 <div className="contentWrap">
                     <ul className="productUl">
                         { isFetchTag === true && tagData.map((e: ITag, i:number) => (
-                            <TagList key={i} TagData={e} />)
+                            <TagList
+                                key={i}
+                                TagData={e}
+                                onSelectTags = { () => this.onSelectTags(i) }
+                            />)
                         )}
                     </ul>
                     <ul className="cardBoxUl">
@@ -74,6 +83,7 @@ class List extends React.Component<IProps> {
                             )}
                         </div>
                     </ul>
+                    <button className="moreButton">더보기</button>
                 </div>
             </div>
         )
@@ -93,7 +103,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     onTagRequest: () => dispatch(tagRequest()),
     onAddToCart: (i: number) => dispatch(addToCart(i)),
     onDeleteToCart: () => dispatch(deleteToCart()),
-
+    onSelectTags: (i: number) => dispatch(selectTags(i))
 });
 
 export default connect(

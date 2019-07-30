@@ -26,11 +26,9 @@ export interface IStationery{
 }
 
 export interface ITag{
-    tagData: {
-        key: string
-        name: string
-    }
+    tagData: []
     isFetchTag: boolean
+    selectedTagList: []
 }
 
 export interface ICount{

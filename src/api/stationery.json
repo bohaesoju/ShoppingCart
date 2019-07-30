@@ -33,11 +33,58 @@
       "price": 500,
       "tags": [
         {
+          "key": "1",
+          "name": "모나미"
+        },
+        {
           "key": "2",
           "name": "카카오프렌즈"
         }
       ],
       "stock": 5
+    },
+    {
+      "id": 4,
+      "name": "몽당연필",
+      "image": "pencil.jpg",
+      "price": 200,
+      "tags": [
+        {
+          "key": "5",
+          "name": "라인프렌즈"
+        }
+      ],
+      "stock": 15
+    },
+    {
+      "id": 5,
+      "name": "연필깍기",
+      "image": "pencil.jpg",
+      "price": 2200,
+      "tags": [
+        {
+          "key": "6",
+          "name": "비바스"
+        },
+        {
+          "key": "3",
+          "name": "아이비스"
+        }
+      ],
+      "stock": 3
+    },
+    {
+      "id": 6,
+      "name": "만년필",
+      "image": "pencil.jpg",
+      "price": 30000,
+      "tags": [
+        {
+          "key": "4",
+          "name": "아트나인"
+        }
+      ],
+      "stock": 2
     }
   ],
   "tags": [

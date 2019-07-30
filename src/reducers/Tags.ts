@@ -1,4 +1,5 @@
 import { ITag } from './Models';
+import {SELECT_TAGS} from "./Stationeries";
 
 export const TAG_REQUEST = 'TAG_REQUEST';
 export const TAG_SUCCESS = 'TAG_SUCCESS';
@@ -11,11 +12,17 @@ export const tagRequest = () => {
 };
 
 const initialState: ITag = {
-    tagData: {
-        key: '1',
-        name: '1',
-    },
-    isFetchTag: false
+    tagData: [],
+    isFetchTag: false,
+    selectedTagList: []
+};
+
+export const selectTags = (i: number) => {
+    console.log('reducer selectTags : ', i);
+    return {
+        type: SELECT_TAGS,
+        selectIndex: i,
+    }
 };
 
 const tags = (state = initialState, action: any): ITag => {
@@ -36,6 +43,17 @@ const tags = (state = initialState, action: any): ITag => {
             return {
                 ...state,
                 isFetchTag: false,
+            };
+        case SELECT_TAGS:
+            console.log('SELECT_TAGS selectIndex: ', action.selectIndex);
+            state.selectedTagList.push(state.tagData[action.selectIndex]);
+            // state.selectedTagList.push(['모나미']);
+            return {
+                ...state,
+                ...state.selectedTagList
+                // cartList: [
+                //     state.data[0]
+                // ]
             };
         default:
             return Object.assign({}, state);

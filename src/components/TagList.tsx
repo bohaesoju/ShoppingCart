@@ -7,13 +7,14 @@ interface ITagData {
 
 interface IAddInfo {
     TagData: ITagData
+    onSelectTags(i: number): void
 }
 
-export const TagList = ({ TagData }: IAddInfo) => {
-    const getTagName = (tagData: any) => {
-        console.log(tagData)
-    }
+export const TagList = ({ TagData, onSelectTags }: IAddInfo) => {
+    // const getTagName = (tagData: ITagData) => {
+    //     console.log(tagData.name)
+    // };
     return(
-        <li className="productLi" onClick={() => getTagName(TagData)}>{TagData.name}</li>
+        <li className="productLi" onClick={ (i: any) => onSelectTags(i) }>{ TagData.name }</li>
     )
 };

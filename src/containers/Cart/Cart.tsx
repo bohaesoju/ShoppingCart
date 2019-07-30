@@ -1,21 +1,24 @@
 import * as React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { rootState } from "../../reducers";
+import { rootState } from '../../reducers';
 import { EmptyCart, FieldCart } from '../../components';
+import { clearCartlist } from '../../reducers/Stationeries';
 
 interface IProps{
     Stationery: any
+    onClearCartlist(): void
 }
 
 class Cart extends React.Component<IProps> {
     buyButton = () => {
-        console.log('buy')
+        console.log(this.props.Stationery.cartList);
+        this.props.onClearCartlist()
     };
     render(){
         const { cartList } = this.props.Stationery;
         return(
-            <div className="wrap">
+            <div className="cartPageWrap">
                 <div className="contentWrap">
                     <div className="cartWrap">
                         { cartList.length > 0 ?
@@ -36,11 +39,11 @@ const mapStateToProps = (rootState: rootState) => {
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    // onStationeryRequest: () => dispatch(stationeryRequest()),
+    onClearCartlist: () => dispatch(clearCartlist()),
 
 });
 
 export default connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(Cart);

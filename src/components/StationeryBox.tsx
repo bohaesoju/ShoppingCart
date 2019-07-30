@@ -13,7 +13,7 @@ interface IStationeryData {
 }
 
 interface IAddInfo {
-    onAddToCart(i: any): any,
+    onAddToCart(i: number): void,
     onDeleteToCart(): void,
     StationeryData: IStationeryData,
     count: number
