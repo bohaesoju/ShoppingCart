@@ -18,6 +18,9 @@ class Cart extends React.Component<IProps> {
         this.props.onPurchaseRequest();
         this.props.onClearCartlist();
     };
+    cancelButton = () => {
+        console.log('cancel')
+    };
     render(){
         const { cartList } = this.props.Stationery;
         return(
@@ -25,7 +28,7 @@ class Cart extends React.Component<IProps> {
                 <div className="contentWrap">
                     <div className="cartWrap">
                         { cartList.length > 0 ?
-                            <FieldCart buyButton={ this.buyButton } cartList={ cartList } /> :
+                            <FieldCart cancelButton={ this.cancelButton } buyButton={ this.buyButton } cartList={ cartList } /> :
                             <EmptyCart />
                         }
                     </div>

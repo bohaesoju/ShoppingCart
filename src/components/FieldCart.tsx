@@ -1,8 +1,9 @@
 import * as React from 'react';
 
 interface IFieldCart{
-    cartList: any
+    cartList: []
     buyButton(): void
+    cancelButton(): void
 }
 
 interface ITag{
@@ -10,12 +11,21 @@ interface ITag{
     name: string
 }
 
+interface ICartList{
+    id: number
+    image: string
+    name: string
+    price: number
+    stock: number
+    tags: []
+}
+
 export const FieldCart:React.FC<IFieldCart> = (props) => {
     return(
             <>
                 <ul className="cardBoxUl">
                     {console.log(props)}
-                    { props.cartList.map((e: any, i:number) => (
+                    { props.cartList.map((e: ICartList, i:number) => (
                         <li key={i} className="cardBoxLi">
                             <img className="cardBoxImg" src={require(`./image/${e.image}`)} alt=""/>
                             <div className="titleSet">
@@ -26,9 +36,10 @@ export const FieldCart:React.FC<IFieldCart> = (props) => {
                                     ))}
                                 </ul>
                                 <p className="stationeryPrice"><span>{e.price}</span>원</p>
-                                <p className="stationeryStock">재고 <span>{e.stock}</span></p>
-                                {/*<p className="stationeryStock">수량 <span>{StationeryData.count}</span></p>*/}
+                                {/*<p className="stationeryStock">재고 <span>{e.stock}</span></p>*/}
+                                <p className="stationeryStock">수량 <span>3</span></p>
                             </div>
+                            <button onClick={ props.cancelButton } className="cancel">취소</button>
                         </li>
                     ))}
 
