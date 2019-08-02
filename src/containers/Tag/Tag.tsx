@@ -22,26 +22,16 @@ class Tag extends React.Component<IProps> {
 
     render(){
         const { tagData, isFetchTag, selectedTagList } = this.props.Tag;
-        interface IStationery {
-            id: number
-            image: string
-            name: string
-            price: number
-            tags: {
-                key: string
-                name: string
-            }[]
-            stock: number
-            count: number
-        }
         interface ITag {
             key: string,
             name: string,
         }
         return(
-            <div>
-                태그
-            </div>
+                <ul className="productUl">
+                    { isFetchTag === true && tagData.map((e: ITag, i:number) => (
+                        <li className="productLi" key={i} onClick={ (i: any) => this.onSelectTags(i) }>{ e.name }</li>
+                    ))}
+                </ul>
         )
     }
 };

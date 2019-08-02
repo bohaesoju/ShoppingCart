@@ -45,8 +45,8 @@ const tags = (state = initialState, action: any): ITag => {
                 isFetchTag: false,
             };
         case SELECT_TAGS:
-            console.log('SELECT_TAGS selectIndex: ', action.selectIndex);
-            state.selectedTagList.push(state.tagData[action.selectIndex]);
+            // console.log('SELECT_TAGS selectIndex: ', action.selectIndex);
+            // state.selectedTagList.push(state.tagData[action.selectIndex]);
             // state.selectedTagList.push(['모나미']);
             return {
                 ...state,

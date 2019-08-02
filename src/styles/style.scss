@@ -34,24 +34,8 @@
     }
   }
   .contentWrap{
-    padding: 10px;
+    padding: 0 10px 10px 10px;
     //height: 100%;
-    .productUl{
-      margin-bottom: 10px;
-      width: 100%;
-      overflow-x: scroll;
-      white-space: nowrap;
-      .productLi{
-        display: inline-block;
-        margin-right: 10px;
-        position: relative;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        padding: 5px;
-        border-radius: 5px;
-      }
-    }
-
   }
 }
 
@@ -157,7 +141,7 @@
 }
 
 .listPageWrap{
-  padding-top: 50px;
+  padding-top: 0px;
 }
 
 .cartPageWrap{
@@ -173,4 +157,21 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 10px;
+}
+
+.productUl{
+  margin-bottom: 10px;
+  margin-top: 60px;
+  width: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  .productLi{
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 5px;
+  }
 }

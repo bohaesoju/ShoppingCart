@@ -72,15 +72,15 @@ class List extends React.Component<IProps> {
         return(
             <div className="listPageWrap">
                 <div className="contentWrap">
-                    <ul className="productUl">
-                        { isFetchTag === true && tagData.map((e: ITag, i:number) => (
-                            <TagList
-                                key={i}
-                                TagData={e}
-                                onSelectTags = { () => this.onSelectTags(i) }
-                            />)
-                        )}
-                    </ul>
+                    {/*<ul className="productUl">*/}
+                        {/*{ isFetchTag === true && tagData.map((e: ITag, i:number) => (*/}
+                            {/*<TagList*/}
+                                {/*key={i}*/}
+                                {/*TagData={e}*/}
+                                {/*onSelectTags = { () => this.onSelectTags(i) }*/}
+                            {/*/>)*/}
+                        {/*)}*/}
+                    {/*</ul>*/}
                     <ul className="cardBoxUl">
                         { isFetchStationery === true && data.map((e: IStationery, i:number) => (
                             <StationeryBox
