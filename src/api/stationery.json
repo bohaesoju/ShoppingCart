@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "볼펜",
-      "image": "./image/pen.jpg",
+      "image": "pen.jpg",
       "price": 1500,
       "tags": [
         {
@@ -28,8 +28,8 @@
     },
     {
       "id": 3,
-      "name": "지우개",
-      "image": "eraser.jpg",
+      "name": "연필",
+      "image": "pencil.jpg",
       "price": 500,
       "tags": [
         {
@@ -45,8 +45,8 @@
     },
     {
       "id": 4,
-      "name": "몽당연필",
-      "image": "pencil.jpg",
+      "name": "노트",
+      "image": "note.png",
       "price": 200,
       "tags": [
         {
@@ -58,8 +58,8 @@
     },
     {
       "id": 5,
-      "name": "연필깍기",
-      "image": "pencil.jpg",
+      "name": "테이프",
+      "image": "tape.jpg",
       "price": 2200,
       "tags": [
         {
@@ -75,16 +75,16 @@
     },
     {
       "id": 6,
-      "name": "만년필",
-      "image": "pencil.jpg",
-      "price": 30000,
+      "name": "봉투",
+      "image": "bag.png",
+      "price": 300,
       "tags": [
         {
-          "key": "4",
-          "name": "아트나인"
+          "key": "7",
+          "name": "동아"
         }
       ],
-      "stock": 2
+      "stock": 100
     }
   ],
   "tags": [
@@ -130,6 +130,21 @@
     },
     {
       "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
     }
   ]
 }

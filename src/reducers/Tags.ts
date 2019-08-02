@@ -50,7 +50,7 @@ const tags = (state = initialState, action: any): ITag => {
             // state.selectedTagList.push(['모나미']);
             return {
                 ...state,
-                ...state.selectedTagList
+                // ...state.selectedTagList
                 // cartList: [
                 //     state.data[0]
                 // ]

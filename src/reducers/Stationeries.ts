@@ -82,7 +82,7 @@ const stationeries = (state = initialState, action: any): IStationery => {
             state.cartList.push(state.data[action.index]);
             return {
                 ...state,
-                ...state.cartList
+                // ...state.cartList
                 // cartList: [
                 //     state.data[0]
                 // ]

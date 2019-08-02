@@ -17,7 +17,7 @@ export const FieldCart:React.FC<IFieldCart> = (props) => {
                     {console.log(props)}
                     { props.cartList.map((e: any, i:number) => (
                         <li key={i} className="cardBoxLi">
-                            <img className="cardBoxImg" src={require('./image/pen.jpg')} alt=""/>
+                            <img className="cardBoxImg" src={require(`./image/${e.image}`)} alt=""/>
                             <div className="titleSet">
                                 <p className="stationeryName">{e.name}</p>
                                 <ul className="categoryUl">
@@ -34,10 +34,12 @@ export const FieldCart:React.FC<IFieldCart> = (props) => {
 
 
                 </ul>
-                <p className="totalCount">총 구매수량 : {props.cartList.length} 개</p>
-                <p className="totalCount">총 결재금액 : {props.cartList.reduce((acc: number, cur: any,) => {
-                    return acc + cur.price;
-                }, 0)} 원</p>
+                <div className="totalCountWrap">
+                    <p className="totalCount">총 구매수량 : {props.cartList.length} 개</p>
+                    <p className="totalCount">총 결재금액 : {props.cartList.reduce((acc: number, cur: any,) => {
+                        return acc + cur.price;
+                    }, 0)} 원</p>
+                </div>
             <button onClick={ props.buyButton } className="buyButton">구매하기</button>
         </>
     )

@@ -32,7 +32,8 @@ export const StationeryBox = ({
                               }: IAddInfo) => {
     return(
         <li className="cardBoxLi">
-            <img className="cardBoxImg" src={require('./image/pen.jpg')} alt=""/>
+            <img className="cardBoxImg" src={require(`./image/${StationeryData.image}`)} alt=""/>
+            {/*<img className="cardBoxImg" src={require('./image/pen.jpg')} alt=""/>*/}
             <div className="titleSet">
                 <p className="stationeryName">{StationeryData.name}</p>
                 <ul className="categoryUl">

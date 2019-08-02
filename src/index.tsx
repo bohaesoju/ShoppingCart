@@ -16,7 +16,7 @@ const sagaMiddleWare = createSagaMiddleWare();
 
 const store = createStore(
     rootReducer,
-    composeWithDevTools(applyMiddleware(sagaMiddleWare, logger))
+    composeWithDevTools(applyMiddleware(sagaMiddleWare))
 );
 
 sagaMiddleWare.run(rootSaga);

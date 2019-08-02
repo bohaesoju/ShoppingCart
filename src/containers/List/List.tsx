@@ -28,7 +28,7 @@ class List extends React.Component<IProps> {
     }
 
     state = {
-        renderingInitNumber: 0
+        renderingInitNumber: 1
     };
 
     onAddToCart = (i: number) => {
@@ -82,16 +82,14 @@ class List extends React.Component<IProps> {
                         )}
                     </ul>
                     <ul className="cardBoxUl">
-                        <div>
-                            { isFetchStationery === true && data.map((e: IStationery, i:number) => (
-                                <StationeryBox
-                                    key={i}
-                                    count={count}
-                                    StationeryData={e}
-                                    onAddToCart={ () => this.onAddToCart(i) }
-                                    onDeleteToCart={ this.onDeleteToCart } />)
-                            )}
-                        </div>
+                        { isFetchStationery === true && data.map((e: IStationery, i:number) => (
+                            <StationeryBox
+                                key={i}
+                                count={count}
+                                StationeryData={e}
+                                onAddToCart={ () => this.onAddToCart(i) }
+                                onDeleteToCart={ this.onDeleteToCart } />
+                        ))}
                     </ul>
                     <button onClick={ this.viewMoreButton } className="moreButton">더보기</button>
                 </div>
