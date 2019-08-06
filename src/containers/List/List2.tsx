@@ -18,6 +18,7 @@ interface IProps {
     Cart: {
         count: number
     }
+    contentPerPage: number
 }
 
 class List extends React.Component<IProps> {
@@ -28,7 +29,10 @@ class List extends React.Component<IProps> {
     }
 
     state = {
-        renderingInitNumber: 1
+        currentContent: [],
+        renderingInitNumber: 1,
+        contentPerPage: 5
+
     };
 
     onAddToCart = (i: number) => {
@@ -49,10 +53,20 @@ class List extends React.Component<IProps> {
         });
     };
 
+    static getDerivedStateFromProps(nextProps: any){
+        if( nextProps.Stationery.isFetchStationery === true ){
+            return {
+                // currentContent: nextProps.Stationery.data.slice(0, this.contentPerPage)
+            }
+        }
+        return null;
+    }
+
     render(){
         const { data, isFetchStationery } = this.props.Stationery;
         const { tagData, isFetchTag, selectedTagList } = this.props.Tag;
         const { count } = this.props.Cart;
+        const { currentContent } = this.state;
         interface IStationery {
             id: number
             image: string
@@ -73,16 +87,16 @@ class List extends React.Component<IProps> {
             <div className="listPageWrap">
                 <div className="contentWrap">
                     {/*<ul className="productUl">*/}
-                        {/*{ isFetchTag === true && tagData.map((e: ITag, i:number) => (*/}
-                            {/*<TagList*/}
-                                {/*key={i}*/}
-                                {/*TagData={e}*/}
-                                {/*onSelectTags = { () => this.onSelectTags(i) }*/}
-                            {/*/>)*/}
-                        {/*)}*/}
+                    {/*{ isFetchTag === true && tagData.map((e: ITag, i:number) => (*/}
+                    {/*<TagList*/}
+                    {/*key={i}*/}
+                    {/*TagData={e}*/}
+                    {/*onSelectTags = { () => this.onSelectTags(i) }*/}
+                    {/*/>)*/}
+                    {/*)}*/}
                     {/*</ul>*/}
                     <ul className="cardBoxUl">
-                        { isFetchStationery === true && data.map((e: IStationery, i:number) => (
+                        { currentContent.length > 0 && currentContent.map((e: IStationery, i:number) => (
                             <StationeryBox
                                 key={i}
                                 count={count}
