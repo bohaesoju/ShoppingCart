@@ -35,8 +35,9 @@ class List extends React.Component<IProps> {
 
     };
 
-    onAddToCart = (i: number) => {
-        this.props.onAddToCart(i);
+    onAddToCart = (i: number, e: any) => {
+        console.log('xxx', i, e);
+        this.props.onAddToCart(i, e);
     };
 
     onDeleteToCart = () => {
@@ -101,7 +102,7 @@ class List extends React.Component<IProps> {
                                 key={i}
                                 count={count}
                                 StationeryData={e}
-                                onAddToCart={ () => this.onAddToCart(i) }
+                                onAddToCart={ () => this.onAddToCart(i, e) }
                                 onDeleteToCart={ this.onDeleteToCart } />
                         ))}
                     </ul>
@@ -123,7 +124,7 @@ const mapStateToProps = (rootState: rootState) => {
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     onStationeryRequest: () => dispatch(stationeryRequest()),
     onTagRequest: () => dispatch(tagRequest()),
-    onAddToCart: (i: number) => dispatch(addToCart(i)),
+    onAddToCart: (i: number, e: any) => dispatch(addToCart(i, e)),
     onDeleteToCart: () => dispatch(deleteToCart()),
     onSelectTags: (i: number) => dispatch(selectTags(i))
 });

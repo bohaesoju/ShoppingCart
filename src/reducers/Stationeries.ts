@@ -8,10 +8,11 @@ export const SELECT_TAGS = 'SELECT_TAGS';
 export const CLEAR_CARTLIST = 'CLEAR_CARTLIST';
 // export const DELETE_TO_CART = 'DELETE_TO_CART';
 
-export const addToCart = (i: number) => {
+export const addToCart = (i: number, targetItem: any) => {
     return {
         type: ADD_TO_CART,
         index: i,
+        targetItem
     }
 };
 
@@ -55,6 +56,7 @@ const initialState: IStationery = {
         //     stock: 1,
         // }
     ],
+    cartData: []
 };
 
 const stationeries = (state = initialState, action: any): IStationery => {
@@ -80,8 +82,10 @@ const stationeries = (state = initialState, action: any): IStationery => {
         case ADD_TO_CART:
             // console.log('cart: ', state.data, action.index);
             state.cartList.push(state.data[action.index]);
+            state.cartData.push(state.data[action.index]);
             return {
                 ...state,
+                // cartData: action.targetItem
                 // ...state.cartList
                 // cartList: [
                 //     state.data[0]

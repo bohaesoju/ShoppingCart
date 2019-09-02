@@ -23,6 +23,7 @@ export interface IStationery{
         price: number
         stock: number
     }[]
+    cartData: any
 }
 
 export interface ITag{
@@ -33,4 +34,5 @@ export interface ITag{
 
 export interface ICount{
     count: number
+    // targetItem: any
 }

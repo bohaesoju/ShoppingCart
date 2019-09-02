@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { StationeryBox, TagList } from '../../components/';
+// import { StationeryBox } from '../../components/';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { stationeryRequest, addToCart } from '../../reducers/Stationeries';
@@ -37,8 +38,9 @@ class List extends React.Component {
 
     };
 
-    onAddToCart = (i) => {
-        this.props.onAddToCart(i);
+    onAddToCart = (i, e) => {
+        console.log('addToCart', i, e);
+        this.props.onAddToCart(i, e);
     };
 
     onDeleteToCart = () => {
@@ -104,7 +106,7 @@ class List extends React.Component {
                                 key={i}
                                 count={count}
                                 StationeryData={e}
-                                onAddToCart={ () => this.onAddToCart(i) }
+                                onAddToCart={ ( i,e ) => this.onAddToCart(i, e) }
                                 onDeleteToCart={ this.onDeleteToCart } />
                         ))}
                     </ul>
@@ -126,7 +128,7 @@ const mapStateToProps = (rootState) => {
 const mapDispatchToProps = (dispatch) => ({
     onStationeryRequest: () => dispatch(stationeryRequest()),
     onTagRequest: () => dispatch(tagRequest()),
-    onAddToCart: (i) => dispatch(addToCart(i)),
+    onAddToCart: (i, e) => dispatch(addToCart(i, e)),
     onDeleteToCart: () => dispatch(deleteToCart()),
     onSelectTags: (i) => dispatch(selectTags(i))
 });

@@ -24,7 +24,7 @@ export const FieldCart:React.FC<IFieldCart> = (props) => {
     return(
             <>
                 <ul className="cardBoxUl">
-                    {console.log(props)}
+                    {/*{console.log(props)}*/}
                     { props.cartList.map((e: ICartList, i:number) => (
                         <li key={i} className="cardBoxLi">
                             <img className="cardBoxImg" src={require(`./image/${e.image}`)} alt=""/>
@@ -37,7 +37,7 @@ export const FieldCart:React.FC<IFieldCart> = (props) => {
                                 </ul>
                                 <p className="stationeryPrice"><span>{e.price}</span>원</p>
                                 {/*<p className="stationeryStock">재고 <span>{e.stock}</span></p>*/}
-                                <p className="stationeryStock">수량 <span>3</span></p>
+                                <p className="stationeryStock">수량 <span>1</span></p>
                             </div>
                             <button onClick={ props.cancelButton } className="cancel">취소</button>
                         </li>
